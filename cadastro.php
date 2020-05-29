@@ -9,15 +9,20 @@
 </head>
 <body>
 <?php
-    $nomeSobrenome = explode(" ", $_POST['nome'], 2);
+
+use Alura\Usuario;
+
+require_once 'Usuario.php';
+
+    $usuario = new Usuario($_POST['nome']);
 ?>
 
 <div class="mx-5 my-5">
 <h1>Cadastro feito com sucesso.</h1>
 <p>Seguem os dados de sua conta:</p>
 <ul class="list-group">
-    <li class="list-group-item">Primeiro nome: <?= $nomeSobrenome[0] ?></li>
-    <li class="list-group-item">Sobrenome: <?= $nomeSobrenome[1] ?> </li>
+    <li class="list-group-item">Primeiro nome: <?= $usuario->getNome() ?></li>
+    <li class="list-group-item">Sobrenome: <?= $usuario->getSobrenome() ?> </li>
     <li class="list-group-item">Usuário: <?= $_POST['nome'] ?></li>
     <li class="list-group-item">Senha: <?= $_POST['senha'] ?></li>
     <li class="list-group-item">Telefone: <?= $_POST['telefone'] ?></li>
