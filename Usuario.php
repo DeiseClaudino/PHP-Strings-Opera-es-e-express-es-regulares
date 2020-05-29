@@ -10,8 +10,24 @@ class Usuario
     public function __construct(string $nome)
     {
         $nomeSobrenome      = explode(" ", $_POST['nome'], 2);
-        $this->nome         = $nomeSobrenome[0];
-        $this->sobrenome    = $nomeSobrenome[1];
+
+        if($nomeSobrenome[0] === "")
+        {
+            $this->nome = "Nome Inválido";
+        }
+        else
+        {
+            $this->nome         = $nomeSobrenome[0];
+        }
+
+        if($nomeSobrenome[1] == null)
+        {
+            $this->sobrenome = "Sobrenome Inválido";
+        }
+        else
+        {
+            $this->sobrenome    = $nomeSobrenome[1];
+        }
     }
 
 
