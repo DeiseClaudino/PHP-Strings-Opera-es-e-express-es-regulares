@@ -3,8 +3,7 @@
 use Alura\Contato;
 use Alura\Usuario;
 
-require_once 'Usuario.php';
-require_once 'Contato.php';
+require_once 'autoloader.php';
 
     $usuario = new Usuario($_POST['nome']);
     $contato   = new Contato($_POST['email']);
