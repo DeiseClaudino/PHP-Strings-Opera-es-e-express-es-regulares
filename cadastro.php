@@ -1,3 +1,16 @@
+<?php
+
+use Alura\Contato;
+use Alura\Usuario;
+
+require_once 'Usuario.php';
+require_once 'Contato.php';
+
+    $usuario = new Usuario($_POST['nome']);
+    $contato   = new Contato($_POST['email']);
+?>
+
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -8,14 +21,6 @@
     <title>Curso Strings</title>
 </head>
 <body>
-<?php
-
-use Alura\Usuario;
-
-require_once 'Usuario.php';
-
-    $usuario = new Usuario($_POST['nome']);
-?>
 
 <div class="mx-5 my-5">
 <h1>Cadastro feito com sucesso.</h1>
@@ -23,7 +28,7 @@ require_once 'Usuario.php';
 <ul class="list-group">
     <li class="list-group-item">Primeiro nome: <?= $usuario->getNome() ?></li>
     <li class="list-group-item">Sobrenome: <?= $usuario->getSobrenome() ?> </li>
-    <li class="list-group-item">Usuário: <?= $_POST['nome'] ?></li>
+    <li class="list-group-item">Usuário: <?= $contato->getUsuario() ?></li>
     <li class="list-group-item">Senha: <?= $_POST['senha'] ?></li>
     <li class="list-group-item">Telefone: <?= $_POST['telefone'] ?></li>
     <li class="list-group-item">Email: <?= $_POST['email'] ?></li>
