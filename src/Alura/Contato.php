@@ -6,8 +6,11 @@ class Contato
 {
     private $email;
 
-    function __construct($email)
+    function __construct(string $email, string $endereco, string $cep)
     {        
+        $this->endereco = $endereco;
+        $this->cep = $cep;
+
         if($this->validaEmail($email) !== false)
         {
             $this->setEmail($email);
@@ -43,5 +46,11 @@ class Contato
     function setEmail(string $email): void
     {
         $this->email = $email;
+    }
+
+    function getEnderecoCep(): string
+    {
+        $endereco_cep =  [$this->endereco, $this->cep];
+        return implode(' - ', $endereco_cep);
     }
 }

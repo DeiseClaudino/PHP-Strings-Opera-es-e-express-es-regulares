@@ -1,12 +1,9 @@
 <?php
 
-use Alura\Contato;
-use Alura\Usuario;
-
 require_once 'autoloader.php';
 
     $usuario = new App\Alura\Usuario($_POST['nome']);
-    $contato   = new App\Alura\Contato($_POST['email']);
+    $contato   = new App\Alura\Contato($_POST['email'], $_POST['endereco'], $_POST['cep']);
 ?>
 
 
@@ -31,7 +28,7 @@ require_once 'autoloader.php';
     <li class="list-group-item">Senha: <?= $_POST['senha'] ?></li>
     <li class="list-group-item">Telefone: <?= $_POST['telefone'] ?></li>
     <li class="list-group-item">Email: <?= $contato->getEmail() ?></li>
-    <li class="list-group-item">Endereço: <?= $_POST['nome'] ?></li>
+    <li class="list-group-item">Endereço: <?= $contato->getEnderecoCep() ?></li>
 </ul>
 </div>
 </body>
