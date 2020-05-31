@@ -30,7 +30,7 @@ require_once 'autoloader.php';
     <li class="list-group-item">Usuário: <?= $contato->getUsuario() ?></li>
     <li class="list-group-item">Senha: <?= $_POST['senha'] ?></li>
     <li class="list-group-item">Telefone: <?= $_POST['telefone'] ?></li>
-    <li class="list-group-item">Email: <?= $_POST['email'] ?></li>
+    <li class="list-group-item">Email: <?= $contato->getEmail() ?></li>
     <li class="list-group-item">Endereço: <?= $_POST['nome'] ?></li>
 </ul>
 </div>
