@@ -51,9 +51,7 @@ class Usuario
 
     private function validaSenha($senha) : void
     {
-        $tamanhoSenha = strlen($senha);
-
-        if($tamanhoSenha > 6)
+        if(strlen(trim($senha)) > 6)
         {
             $this->setSenha($senha);
         }
