@@ -5,6 +5,8 @@ namespace App\Alura;
 class Contato 
 {
     private $email;
+    private $endereco;
+    private $cep;
 
     function __construct(string $email, string $endereco, string $cep)
     {        
