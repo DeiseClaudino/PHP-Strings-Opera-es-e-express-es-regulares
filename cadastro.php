@@ -3,7 +3,7 @@
 require_once 'autoloader.php';
 
     $usuario = new App\Alura\Usuario($_POST['nome'], $_POST['senha']);
-    $contato   = new App\Alura\Contato($_POST['email'], $_POST['endereco'], $_POST['cep']);
+    $contato   = new App\Alura\Contato($_POST['email'], $_POST['endereco'], $_POST['cep'], $_POST['telefone']);
 ?>
 
 
@@ -26,7 +26,7 @@ require_once 'autoloader.php';
     <li class="list-group-item">Sobrenome: <?= $usuario->getSobrenome() ?> </li>
     <li class="list-group-item">Usuário: <?= $contato->getUsuario() ?></li>
     <li class="list-group-item">Senha: <?= $usuario->getSenha() ?></li>
-    <li class="list-group-item">Telefone: <?= $_POST['telefone'] ?></li>
+    <li class="list-group-item">Telefone: <?= $contato->getTelefone() ?></li>
     <li class="list-group-item">Email: <?= $contato->getEmail() ?></li>
     <li class="list-group-item">Endereço: <?= $contato->getEnderecoCep() ?></li>
 </ul>
