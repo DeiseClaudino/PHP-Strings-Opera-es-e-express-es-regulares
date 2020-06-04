@@ -13,7 +13,15 @@ class Contato
     {        
         $this->endereco = $endereco;
         $this->cep      = $cep;
-        $this->telefone = $telefone;
+        
+        if($this->validaTelefone($telefone))
+        {
+            $this->setTelefone($telefone);
+        }
+        else
+        {
+            $this->setTelefone("Telefone Inválido");
+        }
 
         if($this->validaEmail($email) !== false)
         {
@@ -47,9 +55,14 @@ class Contato
     }
 
 
-    function setEmail(string $email): void
+    private function setEmail(string $email): void
     {
         $this->email = $email;
+    }
+
+    private function setTelefone(string $telefone): void
+    {
+        $this->telefone = $telefone;   
     }
 
     function getEnderecoCep(): string
@@ -61,5 +74,10 @@ class Contato
     function getTelefone(): string
     {
         return $this->telefone;
+    }
+
+    function validaTelefone(string $telefone): int
+    {
+        return preg_match('/^[0-9]{4}-[0-9]{4}$/', $telefone, $encontrados);
     }
 }
