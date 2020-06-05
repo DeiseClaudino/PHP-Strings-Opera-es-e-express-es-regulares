@@ -2,7 +2,7 @@
 
 require_once 'autoloader.php';
 
-    $usuario = new App\Alura\Usuario($_POST['nome'], $_POST['senha']);
+    $usuario = new App\Alura\Usuario($_POST['nome'], $_POST['senha'], $_POST['genero']);
     $contato   = new App\Alura\Contato($_POST['email'], $_POST['endereco'], $_POST['cep'], $_POST['telefone']);
 ?>
 
@@ -20,7 +20,7 @@ require_once 'autoloader.php';
 
 <div class="mx-5 my-5">
 <h1>Cadastro feito com sucesso.</h1>
-<p>Seguem os dados de sua conta:</p>
+<p><?= $usuario->getTratamento() ?>, seguem os dados de sua conta:</p>
 <ul class="list-group">
     <li class="list-group-item">Primeiro nome: <?= $usuario->getNome() ?></li>
     <li class="list-group-item">Sobrenome: <?= $usuario->getSobrenome() ?> </li>
